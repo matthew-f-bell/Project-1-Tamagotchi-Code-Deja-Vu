@@ -1,5 +1,5 @@
 /*----------------------------
-           Classes
+      Classes and Objects
 ----------------------------*/
 class tamagotchi {
     constructor(name) {
@@ -12,16 +12,31 @@ class tamagotchi {
 
     }
 }
+
+/*----------------------------
+        Global Variables
+----------------------------*/
+const $playButton = $('#play');
+
 /*----------------------------
            Functions
 ----------------------------*/
-const ageTamagotchi = function() {
-
+// const $button = $('button');
+// $button.click(function(){
+//     const $background = $('#home-background');
+//     $background.attr("src", "assets/bedroom.jpeg");
+//     console.log($background);
+// });
+const startGame = function (startButton) {
+    const $startButton = $(startButton);
+    $startButton.click(function() {
+        console.log("click");
+    });
 }
 
 /*----------------------------
            Main Code
 ----------------------------*/
+startGame($playButton);
 
-const $img = $('img');
-$img.attr("src", "assets/bedroom.jpeg");
+
