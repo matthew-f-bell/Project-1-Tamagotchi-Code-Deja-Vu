@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.game-container {
+    position: relative;
+    padding-right: auto;
+    width: 812px;
+    height: 574px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-title {
+    position: absolute;
+    text-align: center;
+    font-size: 48px;
+    color: white;
+    top: 20%;
+}
+
+img {
+    max-width: 1920px;
+    width: 812px;
+    height: 574px;
+}
+
+.home {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    padding:  15px 20px;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    padding: auto;
+    margin: auto;
+    bottom: 15%;
+}
+
+#play {
+    left: 15%;
+}
+
+#credits {
+    right: 15%
+}
