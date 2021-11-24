@@ -20,3 +20,10 @@ A simple HTML Tamagotchi game using HTML, CSS, and Javascript
 
 ##Day 1
 
+Built the title screen with 2 buttons. Got the "play" button to change backgrounds.
+Still getting used to jQuery so things look rough but planning on smoothing things out as I go.
+
+##Day 2
+
+Researched how to make a countdown timer. Changed it to a regular timer that counts up so that it can represent the tama's age.
+Found a free use sprite generator to make tama pets.
