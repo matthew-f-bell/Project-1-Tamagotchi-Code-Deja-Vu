@@ -38,7 +38,7 @@ class tamagotchi {
 // }
 
 //function that takes in the amount of seconds, tamagotchi property to change, and what number to divide seconds by to increase said property
-let roadToTheEnd = function(second, petAttr, divider) {
+const roadToTheEnd = function(second, petAttr, divider) {
     //makes pet increase in selected pet Property && logging out the property value and death for debugging
     if (second%divider === 0) {
         petAttr++;
@@ -49,6 +49,20 @@ let roadToTheEnd = function(second, petAttr, divider) {
         }
     }
     return petAttr;
+}
+
+//function to heal specific properties according to what is "clicked on"
+const heal = function(petAttr) {
+    //log to debug what is being passed in through the argument
+    //console.log(`healed ${petAttr}`);
+    if (petAttr === "pet.hunger") {
+        pet.hunger = pet.hunger - 2 ;
+    } else if (petAttr === "pet.boredom") {
+        pet.boredom = pet.boredom - 4 ;
+    } else if (petAttr === "pet.sleepiness") {
+        pet.sleepiness = 0 ;
+    }
+    return petAttr ;
 }
 
 // /*----------------------------
@@ -74,11 +88,12 @@ let globalTimer = setInterval(function() {
     if (seconds%5 === 0) {pet.age++;}
     //console.log(`age of pet is ${pet.age}`);
 
-    pet.hunger = roadToTheEnd(seconds, pet.hunger, 1);
-    pet.boredom = roadToTheEnd(seconds, pet.boredom, 2);
-    pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3);
+    //calls function to bring the pet closer to death
+    // pet.hunger = roadToTheEnd(seconds, pet.hunger, 1);
+    // pet.boredom = roadToTheEnd(seconds, pet.boredom, 2);
+    // pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3);
     
-
+    heal("pet.hunger");
 
 
 }, 1000);
