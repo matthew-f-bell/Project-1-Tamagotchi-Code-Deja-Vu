@@ -37,6 +37,20 @@ class tamagotchi {
 //     });
 // }
 
+//function that takes in the amount of seconds, tamagotchi property to change, and what number to divide seconds by to increase said property
+let roadToTheEnd = function(second, petAttr, divider) {
+    //makes pet increase in selected pet Property && logging out the property value and death for debugging
+    if (second%divider === 0) {
+        petAttr++;
+        //console.log(`pet level: ${petAttr}`);
+        if (petAttr >= 10) {
+            //console.log (`${pet.name} has died`);
+            clearInterval(globalTimer);
+        }
+    }
+    return petAttr;
+}
+
 // /*----------------------------
 //            Main Code
 // ----------------------------*/
@@ -60,15 +74,12 @@ let globalTimer = setInterval(function() {
     if (seconds%5 === 0) {pet.age++;}
     //console.log(`age of pet is ${pet.age}`);
 
-    //makes pet hungry
-    if (seconds%1 === 0) {
-        pet.hunger++;
-        console.log(`pet hunger lever: ${pet.hunger}`);
-        if (pet.hunger >= 10) {
-            console.log (`${pet.name} has died`);
-            clearInterval(globalTimer);
-        }
-    }
+    pet.hunger = roadToTheEnd(seconds, pet.hunger, 1);
+    pet.boredom = roadToTheEnd(seconds, pet.boredom, 2);
+    pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3);
+    
+
+
 
 }, 1000);
 
