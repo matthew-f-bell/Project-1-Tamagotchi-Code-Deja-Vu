@@ -60,5 +60,15 @@ let globalTimer = setInterval(function() {
     if (seconds%5 === 0) {pet.age++;}
     //console.log(`age of pet is ${pet.age}`);
 
+    //makes pet hungry
+    if (seconds%1 === 0) {
+        pet.hunger++;
+        console.log(`pet hunger lever: ${pet.hunger}`);
+        if (pet.hunger >= 10) {
+            console.log (`${pet.name} has died`);
+            clearInterval(globalTimer);
+        }
+    }
+
 }, 1000);
 
