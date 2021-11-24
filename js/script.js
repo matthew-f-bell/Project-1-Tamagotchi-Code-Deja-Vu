@@ -13,6 +13,10 @@ class tamagotchi {
     }
 }
 
+const buttonLocations = {
+    $play: $('#play'),
+    $credits: $('credits'),
+}
 /*----------------------------
         Global Variables
 ----------------------------*/
@@ -39,4 +43,13 @@ const startGame = function (startButton) {
 ----------------------------*/
 startGame($playButton);
 
+const gameStartTime = new Date().getTime();
+
+let globalTimer = setInterval(function() {
+    let now = new Date().getTime();    
+    let age = now - gameStartTime;
+    let seconds = Math.floor((age%(1000*60))/1000);
+
+    console.log(seconds);
+}, 1000);
 
