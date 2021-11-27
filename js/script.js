@@ -22,6 +22,7 @@ const $creditsButton = $('#credits');
 const $gameTitle = $('#game-title');
 const $inGameButton = $('.in-game');
 const $feed = $('#feed');
+const $backButton = $('#back-to-title');
 
 /*----------------------------
             Functions
@@ -101,16 +102,32 @@ const heal = function(petAttr) {
 
     $creditsButton.click(function(){
         // removes title screen elements
-        $creditsButton.remove();
-        $playButton.remove();
-        $gameTitle.remove();
+        $creditsButton.hide();
+        $playButton.hide();
+        $gameTitle.hide();
 
         // adds a p element with text
         $gameContainer.prepend('<h1 id="credits-title">Credits</h1>');
         $gameContainer.append('<p class="credits-roll">This game was created by Matthew Bell</p>');
-        $gameContainer.append('<button class="game-buttons id="back-to-title>< Back</button>');
+        $backButton.removeAttr('style');
+
+    
+
+        $backButton.click(function() {
+            const $creditsTitle = $('#credits-title');
+            const $creditsRoll = $('.credits-roll');
+            $backButton.hide();
+            $creditsRoll.remove();
+            $creditsTitle.remove();
+
+            $creditsButton.removeAttr('style');
+            $playButton.removeAttr('style');
+            $gameTitle.removeAttr('style');
+        });
     });
     
 /*----------------------------
            Main Code
 ----------------------------*/
+
+$backButton.hide();
