@@ -27,3 +27,7 @@ Still getting used to jQuery so things look rough but planning on smoothing thin
 
 Researched how to make a countdown timer. Changed it to a regular timer that counts up so that it can represent the tama's age.
 Found a free use sprite generator to make tama pets.
+Was able to connect the timer so that it makes a tama pet hungry, sleepy, or bored.
+Also wrote a function to "heal" the pet of it's hunger, sleepiness, or boredom. They aren't connected to a button yet so no way to activate them except hard coding it.
+
+##Day 3

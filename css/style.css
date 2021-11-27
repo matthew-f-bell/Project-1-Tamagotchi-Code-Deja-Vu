@@ -15,12 +15,19 @@ body {
     justify-content: center;
 }
 
-#game-title {
+
+
+h1, p {
     position: absolute;
     text-align: center;
     font-size: 48px;
     color: white;
     top: 20%;
+}
+
+.credits-roll {
+    font-size: 24px;
+    top: 35%;
 }
 
 img {
@@ -29,7 +36,7 @@ img {
     height: 574px;
 }
 
-.home {
+.game-buttons {
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -47,5 +54,17 @@ img {
 }
 
 #credits {
-    right: 15%
+    right: 15%;
+}
+
+#sleep {
+    right: 5%;
+}
+
+#entertain {
+    right: 20%;
+}
+
+#feed {
+    right: 33%;
 }
