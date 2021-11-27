@@ -57,77 +57,77 @@ const heal = function(petAttr) {
     return petAttr ;
 }
 
-// function to start the game and all the timers and sets up the gamescreen
-    $playButton.click(function(){
-        // removes title screen elements
-        $creditsButton.remove();
-        $playButton.remove();
-        $gameTitle.remove();
-        // changes the background
-        const $background = $('#home-background');
-        $background.attr("src", "assets/bedroom.jpeg");
-        // creates the buttons for the game to "heal" the pet
-        $gameContainer.append('<button class="in-game game-buttons" id="feed">Feed</button>');
-        $gameContainer.append('<button class="in-game game-buttons" id="entertain">Play</button>');
-        $gameContainer.append('<button class="in-game game-buttons" id="sleep">Sleep</button>');
 
-        // const pet = new tamagotchi();
-
-        // // gets the time of the start of the game
-        // const gameStartTime = new Date().getTime();
-
-        // // creates a global timer to track all stats of the tamagotchi
-        // let globalTimer = setInterval(function() {
-
-        //     // constantly gets a new time after the start of the game in milliseconds and converts it to seconds
-        //     let now = new Date().getTime();
-        //     let milli = now - gameStartTime;
-        //     let seconds = Math.floor((milli%(1000*60))/1000);
-
-        //     console.log(seconds);
-
-        //     // ages the pet by 1 every 10 seconds && console.log for debugging
-        //     if (seconds%5 === 0) {pet.age++;}
-        //     // console.log(`age of pet is ${pet.age}`);
-
-        //     // calls function to bring the pet closer to death
-        //     pet.hunger = roadToTheEnd(seconds, pet.hunger, 1);
-        //     pet.boredom = roadToTheEnd(seconds, pet.boredom, 2);
-        //     pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3);
-            
-        // }, 1000);
-
-
-    });
-
-    $creditsButton.click(function(){
-        // removes title screen elements
-        $creditsButton.hide();
-        $playButton.hide();
-        $gameTitle.hide();
-
-        // adds a p element with text
-        $gameContainer.prepend('<h1 id="credits-title">Credits</h1>');
-        $gameContainer.append('<p class="credits-roll">This game was created by Matthew Bell</p>');
-        $backButton.removeAttr('style');
-
-    
-
-        $backButton.click(function() {
-            const $creditsTitle = $('#credits-title');
-            const $creditsRoll = $('.credits-roll');
-            $backButton.hide();
-            $creditsRoll.remove();
-            $creditsTitle.remove();
-
-            $creditsButton.removeAttr('style');
-            $playButton.removeAttr('style');
-            $gameTitle.removeAttr('style');
-        });
-    });
-    
 /*----------------------------
-           Main Code
+ Main Code && Event Listeners
 ----------------------------*/
 
 $backButton.hide();
+$inGameButton.hide();
+
+// function to start the game and all the timers and sets up the gamescreen
+$playButton.click(function(){
+    // removes title screen elements
+    $creditsButton.hide();
+    $playButton.hide();
+    $gameTitle.hide();
+    // changes the background
+    const $background = $('#home-background');
+    $background.attr("src", "assets/bedroom.jpeg");
+    // creates the buttons for the game to "heal" the pet
+    $inGameButton.removeAttr("style");
+
+    // const pet = new tamagotchi();
+
+    // // gets the time of the start of the game
+    // const gameStartTime = new Date().getTime();
+
+    // // creates a global timer to track all stats of the tamagotchi
+    // let globalTimer = setInterval(function() {
+
+    //     // constantly gets a new time after the start of the game in milliseconds and converts it to seconds
+    //     let now = new Date().getTime();
+    //     let milli = now - gameStartTime;
+    //     let seconds = Math.floor((milli%(1000*60))/1000);
+
+    //     console.log(seconds);
+
+    //     // ages the pet by 1 every 10 seconds && console.log for debugging
+    //     if (seconds%5 === 0) {pet.age++;}
+    //     // console.log(`age of pet is ${pet.age}`);
+
+    //     // calls function to bring the pet closer to death
+    //     pet.hunger = roadToTheEnd(seconds, pet.hunger, 1);
+    //     pet.boredom = roadToTheEnd(seconds, pet.boredom, 2);
+    //     pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3);
+        
+    // }, 1000);
+
+
+});
+
+$creditsButton.click(function(){
+    // removes title screen elements
+    $creditsButton.hide();
+    $playButton.hide();
+    $gameTitle.hide();
+
+    // adds a p element with text
+    $gameContainer.prepend('<h1 id="credits-title">Credits</h1>');
+    $gameContainer.append('<p class="credits-roll">This game was created by Matthew Bell</p>');
+    $backButton.removeAttr('style');
+
+
+
+    $backButton.click(function() {
+        const $creditsTitle = $('#credits-title');
+        const $creditsRoll = $('.credits-roll');
+        $backButton.hide();
+        $creditsRoll.remove();
+        $creditsTitle.remove();
+
+        $creditsButton.removeAttr('style');
+        $playButton.removeAttr('style');
+        $gameTitle.removeAttr('style');
+    });
+});
