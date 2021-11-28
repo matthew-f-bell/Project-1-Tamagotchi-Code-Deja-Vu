@@ -69,4 +69,18 @@ img {
     right: 33%;
 }
 
+.bar-border {
+    background-color: rgb(192, 192, 192);
+    width: 50%;
+    border-radius: 15px;
+}
 
+.bar-fill {
+    background-color: rgb(116, 194, 92);
+    color: white;
+    width: 1%;
+    height: 15px;
+    text-align: center;
+    line-height: 13px;
+    border-radius: 15px;
+}

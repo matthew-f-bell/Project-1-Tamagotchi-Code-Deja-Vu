@@ -64,7 +64,7 @@ const move = function() {
             clearInterval(id);
         } else { 
             width ++;
-            $hungerBar.width(widht + '%');
+            $hungerBar.width(width + '%');
         }
     }
     let width = 1;
@@ -120,6 +120,7 @@ $playButton.click(function(){
     $inGameButton.click(function(buttonClicked){
         const $buttonsClicked = $(buttonClicked.target);
         heal($buttonsClicked.html(), pet);
+        move();
     });
 });
 
