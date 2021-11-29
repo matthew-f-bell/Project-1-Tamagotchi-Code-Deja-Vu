@@ -24,6 +24,10 @@ const $inGameButton = $('.in-game');
 const $feed = $('#feed');
 const $backButton = $('#back-to-title');
 const $hungerBar = $('#hunger-bar');
+const $boredBar = $('#bored-bar');
+const $sleepBar = $('#sleep-bar');
+const $progressBar = $('.progress');
+const $controlBoard = $('.control-board');
 
 /*----------------------------
             Functions
@@ -31,10 +35,11 @@ const $hungerBar = $('#hunger-bar');
 
 
 // function that takes in the amount of seconds, tamagotchi property to change, and what number to divide seconds by to increase said property
-const roadToTheEnd = function(second, petAttr, divider, timer) {
+const roadToTheEnd = function(second, petAttr, divider, timer, progressBar) {
     // makes pet increase in selected pet Property && logging out the property value and death for debugging
     if (second%divider === 0) {
         petAttr++;
+        progressBar.width((petAttr * 10) + '%' );
         // console.log(`pet level: ${petAttr}`);
         if (petAttr >= 10) {
             // console.log (`${pet.name} has died`);
@@ -58,26 +63,27 @@ const heal = function(petAttr, tama) {
     return petAttr ;
 }
 
-const move = function() {
-    const frame = function() {
-        if (width >=100) { 
-            clearInterval(id);
-        } else { 
-            width ++;
-            $hungerBar.width(width + '%');
-        }
-    }
-    let width = 1;
-    let id = setInterval(frame, 10);
-}
+// code just making the progress fill
+// const move = function() {
+//     const frame = function() {
+//         if (width >=100) { 
+//             clearInterval(id);
+//         } else { 
+//             width ++;
+//             $hungerBar.width(width + '%');
+//         }
+//     }
+//     let width = 1;
+//     let id = setInterval(frame, 10);
+// }
 
 
 /*----------------------------
  Main Code && Event Listeners
 ----------------------------*/
-
+$controlBoard.hide();
 $backButton.hide();
-$inGameButton.hide();
+
 
 // function to start the game and all the timers and sets up the gamescreen
 $playButton.click(function(){
@@ -89,7 +95,7 @@ $playButton.click(function(){
     const $background = $('#home-background');
     $background.attr("src", "assets/bedroom.jpeg");
     // creates the buttons for the game to "heal" the pet
-    $inGameButton.show();
+    $controlBoard.show();
 
     const pet = new tamagotchi();
 
@@ -111,16 +117,15 @@ $playButton.click(function(){
         // console.log(`age of pet is ${pet.age}`);
 
         // calls function to bring the pet closer to death
-        pet.hunger = roadToTheEnd(seconds, pet.hunger, 1, globalTimer);
-        pet.boredom = roadToTheEnd(seconds, pet.boredom, 2, globalTimer);
-        pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3, globalTimer);
+        pet.hunger = roadToTheEnd(seconds, pet.hunger, 1, globalTimer, $hungerBar);
+        pet.boredom = roadToTheEnd(seconds, pet.boredom, 2, globalTimer, $boredBar);
+        pet.sleepiness = roadToTheEnd(seconds, pet.sleepiness, 3, globalTimer, $sleepBar);
         
     }, 1000);
 
     $inGameButton.click(function(buttonClicked){
         const $buttonsClicked = $(buttonClicked.target);
         heal($buttonsClicked.html(), pet);
-        move();
     });
 });
 
