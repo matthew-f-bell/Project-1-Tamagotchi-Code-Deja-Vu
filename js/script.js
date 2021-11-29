@@ -28,6 +28,8 @@ const $boredBar = $('#bored-bar');
 const $sleepBar = $('#sleep-bar');
 const $progressBar = $('.progress');
 const $controlBoard = $('.control-board');
+const $petScreen = $('.pet-screen');
+const $beginGame = $('#begin-game')
 
 /*----------------------------
             Functions
@@ -84,14 +86,23 @@ const move = function() {
 ----------------------------*/
 $controlBoard.hide();
 $backButton.hide();
+$petScreen.hide();
 
-
-// function to start the game and all the timers and sets up the gamescreen
+// goes to character select screen
 $playButton.click(function(){
     // removes title screen elements
     $creditsButton.hide();
     $playButton.hide();
     $gameTitle.hide();
+
+    // shows character select screen elements
+    $petScreen.show();
+});
+
+// function to start the game and all the timers and sets up the gamescreen
+$beginGame.click(function(){
+    // hides pet screen
+    $petScreen.hide();
     // changes the background
     const $background = $('#home-background');
     $background.attr("src", "assets/bedroom.jpeg");
@@ -124,6 +135,7 @@ $playButton.click(function(){
         
     }, 1000);
 
+    // will detect which button was clicked and heal the pet according to the text of the button
     $inGameButton.click(function(buttonClicked){
         const $buttonsClicked = $(buttonClicked.target);
         heal($buttonsClicked.html(), pet);

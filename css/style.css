@@ -17,7 +17,7 @@ body {
 }
 
 .control-board {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.671);
     padding: 96px 406px;
     position: absolute;
     z-index: 1;
@@ -26,7 +26,7 @@ body {
 
 
 
-h1, p {
+h1 {
     position: absolute;
     text-align: center;
     font-size: 48px;
@@ -36,6 +36,9 @@ h1, p {
 }
 
 .credits-roll {
+    position: absolute;
+    text-align: center;
+    color: white;
     font-size: 24px;
     top: 35%;
     z-index: 2;
@@ -82,7 +85,7 @@ h1, p {
 }
 
 .bar-border {
-    background-color: rgba(192, 192, 192, 0);
+    background-color: rgba(192, 192, 192, 0.938);
     width: 50%;
     border-radius: 15px;
     z-index: 3;
@@ -131,7 +134,6 @@ h1, p {
 .pet-screen {
     position: absolute;
     display: block;
-    color: white;
     z-index: 2;
 }
 
@@ -140,11 +142,15 @@ h1, p {
 }
 
 #lylee-name, #pokemone-name, #skarwa-name {
+    color: white;
+    position:absolute;
     font-size: 24px;
+    bottom: 75%;
 }
 
 label {
     bottom: 35%;
+    color: white;
 }
 
 input {
@@ -152,6 +158,15 @@ input {
 }
 
 .card {
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
     margin: 0 35px;
+}
+
+#lylee {
+    left: 10%;
+}
+
+#skarwa {
+    right: 10%;
 }
