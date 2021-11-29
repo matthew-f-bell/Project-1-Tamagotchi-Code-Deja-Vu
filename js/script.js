@@ -63,20 +63,21 @@ const heal = function(petAttr, tama) {
     return petAttr ;
 }
 
+/*----------------------------
 // code just making the progress fill
-// const move = function() {
-//     const frame = function() {
-//         if (width >=100) { 
-//             clearInterval(id);
-//         } else { 
-//             width ++;
-//             $hungerBar.width(width + '%');
-//         }
-//     }
-//     let width = 1;
-//     let id = setInterval(frame, 10);
-// }
-
+const move = function() {
+    const frame = function() {
+        if (width >=100) { 
+            clearInterval(id);
+        } else { 
+            width ++;
+            $hungerBar.width(width + '%');
+        }
+    }
+    let width = 1;
+    let id = setInterval(frame, 10);
+}
+----------------------------*/
 
 /*----------------------------
  Main Code && Event Listeners
