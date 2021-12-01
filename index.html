@@ -15,27 +15,37 @@
 </head>
 <body>
     <div class="game-container">
+        <!-- For Everything on the title screen -->
         <img id="home-background" src="assets/space.jpeg">
         <h1 id="game-title">Deja Vu</h1>
         <button class="game-buttons" id="play">Play</button>
         <button class="game-buttons" id="credits">Credits</button>
         <button class="game-buttons" id="back-to-title">< Back</button>
         <!-- For everything that is for the character creation -->
-        <div class="pet-screen card" id="lylee">
+        <h2 class="pet-screen" id="pet-screen-title">Choose and Name Your Streamer:</h2>
+        <label class="pet-screen card" id="lylee">
+            <input type="radio" id="lylee-choice" name="drone" value="lylee-select" checked>
             <img id="lylee-img" src="assets/lylee.png">
-            <p id="lylee-name">Lylee</p>
-        </div>
-        <div class="pet-screen card" id="pokemone">
-            <img id="pokemone-img" src="assets/pokemone.png">
-            <p id="pokemone-name">Pokemone</p>
-        </div>
-        <div class="pet-screen card" id="skarwa">
+            <label for="lylee-choice" id="lylee-name">Lylee</label>
+        </label>
+        <label class="pet-screen card" id="pokemone">
+            <input type="radio" id="pokemone-choice" name="drone" value="pokemone-select">
+            <img for="pokemone-choice" id="pokemone-img" src="assets/pokemone.png">
+            <label for="pokemone-choice" id="pokemone-name">Pokemone</label>
+        </label>
+        <label class="pet-screen card" id="skarwa">
+            <input type="radio" id="skarwa-choice" name="drone" value="skarwa-select">
             <img id="skarwa-img" src="assets/skarwa.png">
-            <p id="skarwa-name">Skarwa</p>
-        </div>
-        <label class="pet-screen" for="name">Tamagotchi pet name (2 to 8 characters):</label>
+            <label for="skarwa-choice" id="skarwa-name">Skarwa</label>
+        </label>
+        <label class="pet-screen" id="name-instruct" for="name">Tamagotchi pet name (2 to 8 characters):</label>
         <input class="pet-screen" type="text" id="pet-name" name="name" minlength="2" maxlength="8" size="10">
-        <button class="game-buttons pet-screen" id="begin-game">Start Game</button>        
+        <p class="pet-screen" id="how-to-play">
+            Your streamer will get hungry so be sure to click that Feed button.</br>
+            If they start losing subscribers click the Stream button.</br>
+            Finally, if your streamer is starting to get lazy make them workout by clicking the Gym button.
+        </p>
+        <button class="game-buttons pet-screen" id="begin-game" type="submit">Start Game</button>        
         <!-- For everything that appears as the game plays on -->
         <div class="control-board">
             <button class="in-game game-buttons" id="feed">Feed</button>

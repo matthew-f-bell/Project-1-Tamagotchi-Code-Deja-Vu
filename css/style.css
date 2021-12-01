@@ -131,6 +131,7 @@ h1 {
     bottom: 35%;
 }
 
+/*for styling the pet selection screen*/
 .pet-screen {
     position: absolute;
     display: block;
@@ -145,22 +146,27 @@ h1 {
     color: white;
     position:absolute;
     font-size: 24px;
-    bottom: 75%;
+    bottom: 100%;
 }
 
-label {
-    bottom: 35%;
+#name-instruct {
+    top: 40%;
+    font-size: 24px;
     color: white;
 }
 
-input {
-    bottom: 29%;
+#pet-name {
+    height: 4%;
+    width: 25%;
+    font-size: 18px;
+    top: 46%;
 }
 
 .card {
     display: flex;
     justify-content: space-evenly;
     margin: 0 35px;
+    top: 20%;
 }
 
 #lylee {
@@ -170,3 +176,35 @@ input {
 #skarwa {
     right: 10%;
 }
+
+#pet-screen-title {
+    color: white;
+    top: 5%;
+}
+
+#how-to-play {
+    color: white;
+    bottom: 30%;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+/* styling to make the images a radio choice */
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* makes the cursor become a pointer so you know you can choose the image */
+[type=radio]+img {
+    cursor: pointer;
+}
+
+[type=radio]:checked+img {
+    outline: 2px solid white;
+}
+
