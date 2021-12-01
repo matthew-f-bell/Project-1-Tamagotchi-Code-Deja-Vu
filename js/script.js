@@ -2,7 +2,7 @@
       Classes and Objects
 ----------------------------*/
 class tamagotchi {
-    constructor(name) {
+    constructor() {
         this.name = "";
         this.hunger = 0;
         this.sleepiness = 0;
@@ -17,6 +17,7 @@ class tamagotchi {
         Global Variables
 ----------------------------*/
 
+const $background = $('#home-background');
 const $playButton = $('#play');
 const $gameContainer = $('.game-container');
 const $creditsButton = $('#credits');
@@ -31,16 +32,25 @@ const $controlBoard = $('.control-board');
 const $petScreen = $('.pet-screen');
 const $beginGame = $('#begin-game');
 const $userNameInput = $('#pet-name');
-const $userPetChoice = $('.choice');
+const $userPetChoice = $('[name="drone"]');
 const $nameOfPet = $('#name-of-pet');
 const $petChoice = $('#pet-choice');
 const $age = $('#age');
+const $thePet = $('#the-pet');
+const $modal = $('#dead-pet');
+const $playAgain = $('#play-again');
+const $dontPlay = $('#dont-play');
 
 
 /*----------------------------
             Functions
 ----------------------------*/
-
+// reset all stats to 0
+const statReset = function() {
+    $hungerBar.width('0%');
+    $boredBar.width('0%');
+    $sleepBar.width('0%');
+}
 
 // function that takes in the amount of seconds, tamagotchi property to change, and what number to divide seconds by to increase said property
 const roadToTheEnd = function(second, petAttr, divider, timer, progressBar) {
@@ -51,6 +61,8 @@ const roadToTheEnd = function(second, petAttr, divider, timer, progressBar) {
         if (petAttr >= 10) {
             // console.log (`${pet.name} has died`);
             clearInterval(timer);
+            //calls modal on death
+            $modal.css("display", "block");
         }
         petAttr++;
     }
@@ -63,8 +75,10 @@ const heal = function(petAttr, tama) {
     // console.log(`healed ${petAttr}`);
     if (petAttr === "Feed") {
         tama.hunger = tama.hunger - 2 ;
+        if (tama.hunger < 0) { tama.hunger = 0; }
     } else if (petAttr === "Play") {
         tama.boredom = tama.boredom - 4 ;
+        if (tama.boredom < 0) { tama.boredom = 0; }
     } else if (petAttr === "Sleep") {
         tama.sleepiness = 0 ;
     }
@@ -93,6 +107,7 @@ const move = function() {
 $controlBoard.hide();
 $backButton.hide();
 $petScreen.hide();
+$thePet.hide();
 
 // goes to character select screen
 $playButton.click(function(){
@@ -111,24 +126,32 @@ $beginGame.click(function(){
     // hides pet screen
     $petScreen.hide();
     // changes the background
-    const $background = $('#home-background');
     $background.attr("src", "assets/bedroom.jpeg");
-    // creates the buttons for the game to "heal" the pet
+    // creates the buttons for the game to "heal" the pet and the pet
     $controlBoard.show();
+    $thePet.show();
 
+    // used just to trigger getting data from form
     $petChoice.on('submit', function(event) {
         event.preventDefault();
         // const userNameInput = $userNameInput.val();
         //console.log(userNameInput);
     });
+
+    // creates a new pet
     const pet = new tamagotchi();
+    // names the pet using input from selection screen
     pet.name = $userNameInput.val();
-    console.log($userPetChoice);
     $nameOfPet.html(`Name: ${pet.name}`);
-
+    // gets the correct pet image from selection screen
+    for(let i = 0 ; i < $userPetChoice.length ; i++){
+        if($userPetChoice[i].checked){
+            pet.image = $userPetChoice[i].value;
+            //console.log($userPetChoice[i].value);
+        }
+    }
+    $thePet.attr("src", pet.image);
     
-    
-
     // gets the time of the start of the game
     const gameStartTime = new Date().getTime();
 
@@ -185,9 +208,28 @@ $creditsButton.click(function(){
         $creditsTitle.remove();
 
         // unhides the title screen elements
-        $creditsButton.removeAttr('style');
-        $playButton.removeAttr('style');
-        $gameTitle.removeAttr('style');
+        $creditsButton.show();
+        $playButton.show();
+        $gameTitle.show();
     });
 });
 
+$playAgain.click(function() {
+    $modal.css("display", "none");
+    statReset();
+    $background.attr("src", "assets/space.jpeg");
+    $controlBoard.hide();
+    $thePet.hide();
+    $petScreen.show();
+});
+
+$dontPlay.click(function() {
+    $modal.css("display", "none");
+    statReset();
+    $background.attr("src", "assets/space.jpeg");
+    $controlBoard.hide();
+    $thePet.hide();
+    $creditsButton.show();
+    $playButton.show();
+    $gameTitle.show();                
+});

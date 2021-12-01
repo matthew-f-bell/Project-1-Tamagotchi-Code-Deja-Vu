@@ -25,17 +25,17 @@
         <h2 class="pet-screen" id="pet-screen-title">Choose and Name Your Streamer:</h2>
         <form id="pet-choice">
         <label class="pet-screen card" id="lylee">
-            <input type="radio" class="choice" id="lylee-choice" name="drone" value="lylee-select" checked>
+            <input type="radio" class="choice" id="lylee-choice" name="drone" value="assets/lylee.png" checked>
             <img id="lylee-img" for="lylee-choice" src="assets/lylee.png">
             <label for="lylee-choice" id="lylee-name">Lylee</label>
         </label>
         <label class="pet-screen card" id="pokemone">
-            <input type="radio" class="choice" id="pokemone-choice" name="drone" value="pokemone-select">
+            <input type="radio" class="choice" id="pokemone-choice" name="drone" value="assets/pokemone.png">
             <img for="pokemone-choice" id="pokemone-img" src="assets/pokemone.png">
             <label for="pokemone-choice" id="pokemone-name">Pokemone</label>
         </label>
         <label class="pet-screen card" id="skarwa">
-            <input type="radio" class="choice" id="skarwa-choice" name="drone" value="skarwa-select">
+            <input type="radio" class="choice" id="skarwa-choice" name="drone" value="assets/skarwa.png">
             <img id="skarwa-img" for="skarwa-choice" src="assets/skarwa.png">
             <label for="skarwa-choice" id="skarwa-name">Skarwa</label>
         </label>
@@ -50,6 +50,7 @@
         </form>
 
         <!-- For everything that appears as the game plays on -->
+        <img class="in-game" id="the-pet" src="">
         <div class="control-board">
             <button class="in-game game-buttons" id="feed">Feed</button>
             <button class="in-game game-buttons" id="entertain">Play</button>
@@ -68,7 +69,19 @@
             </div>
             <p class="in-game" id="name-of-pet">name</p>
             <p class="in-game" id="age"></p>
-        </div>  
+        </div> 
+        <!-- Game Over Modal -->
+        <!-- The Modal Itself -->
+        <div class="modal" id="dead-pet">
+            <!-- The Content of the Modal -->
+            <div class="game-over-content">
+                <h1 class="game-over" id="game-over-title">GAME OVER!</h1>
+                <h2 class="game-over" id="died"></h2>
+                <h3 class="game-over" id="decisions">Play Again?</h3>
+                <button class="game-over" id="play-again">Yes</button>
+                <button class="game-over" id="dont-play">No</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
