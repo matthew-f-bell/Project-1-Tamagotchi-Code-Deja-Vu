@@ -84,16 +84,17 @@ h1 {
     right: 33%;
 }
 
-.bar-border {
+
+
+#hunger-bar-border, #bored-bar-border, #sleep-bar-border {
     background-color: rgba(192, 192, 192, 0.938);
     width: 50%;
     border-radius: 15px;
     z-index: 3;
 }
 
-.bar-fill {
+#hunger-bar, #bored-bar, #sleep-bar {
     background-color: rgb(116, 194, 92);
-    color: white;
     width: 0%;
     height: 15px;
     text-align: center;
@@ -102,21 +103,19 @@ h1 {
 }
 
 .progress {
-    width: 50%;
     position: absolute;
     left: 1%;
-    z-index: 3;
 }
 
-#hunger-bar, #hunger-title {
+#hunger-bar, #hunger-title, #hunger-bar-border {
     bottom: 70%;
 }
 
-#bored-bar, #boredom-title {
+#bored-bar, #boredom-title, #bored-bar-border {
     bottom: 40%;
 }
 
-#sleep-bar, #sleep-title{
+#sleep-bar, #sleep-title, #sleep-bar-border {
     bottom: 10%;
 }
 
@@ -129,6 +128,27 @@ h1 {
 
 .in-game {
     bottom: 35%;
+}
+
+#name-of-name {
+    color: white;
+    bottom: 75%;
+    right: 26%;
+}
+
+#name-of-pet {
+    color: white;
+    position: absolute;
+    bottom: 70%;
+    right: 26%;
+    z-index: 4;
+}
+
+#age {
+    color: white;
+    position: absolute;
+    bottom: 70%;
+    right: 16%;
 }
 
 /*for styling the pet selection screen*/
@@ -151,6 +171,7 @@ h1 {
 
 #name-instruct {
     top: 40%;
+    left: 25%;
     font-size: 24px;
     color: white;
 }
@@ -160,6 +181,7 @@ h1 {
     width: 25%;
     font-size: 18px;
     top: 46%;
+    left: 39%;
 }
 
 .card {
@@ -171,6 +193,10 @@ h1 {
 
 #lylee {
     left: 10%;
+}
+
+#pokemone {
+    left: 40%;
 }
 
 #skarwa {
@@ -185,11 +211,21 @@ h1 {
 #how-to-play {
     color: white;
     bottom: 30%;
+    left: 8%;
     font-size: 18px;
     text-align: center;
 }
 
+#begin-game {
+    left: 40%;
+}
 
+#pet-choice {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+}
 
 /* styling to make the images a radio choice */
 [type=radio] {
@@ -201,6 +237,7 @@ h1 {
 
 /* makes the cursor become a pointer so you know you can choose the image */
 [type=radio]+img {
+    display: flex;
     cursor: pointer;
 }
 

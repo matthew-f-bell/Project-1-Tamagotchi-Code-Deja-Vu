@@ -23,19 +23,20 @@
         <button class="game-buttons" id="back-to-title">< Back</button>
         <!-- For everything that is for the character creation -->
         <h2 class="pet-screen" id="pet-screen-title">Choose and Name Your Streamer:</h2>
+        <form id="pet-choice">
         <label class="pet-screen card" id="lylee">
-            <input type="radio" id="lylee-choice" name="drone" value="lylee-select" checked>
-            <img id="lylee-img" src="assets/lylee.png">
+            <input type="radio" class="choice" id="lylee-choice" name="drone" value="lylee-select" checked>
+            <img id="lylee-img" for="lylee-choice" src="assets/lylee.png">
             <label for="lylee-choice" id="lylee-name">Lylee</label>
         </label>
         <label class="pet-screen card" id="pokemone">
-            <input type="radio" id="pokemone-choice" name="drone" value="pokemone-select">
+            <input type="radio" class="choice" id="pokemone-choice" name="drone" value="pokemone-select">
             <img for="pokemone-choice" id="pokemone-img" src="assets/pokemone.png">
             <label for="pokemone-choice" id="pokemone-name">Pokemone</label>
         </label>
         <label class="pet-screen card" id="skarwa">
-            <input type="radio" id="skarwa-choice" name="drone" value="skarwa-select">
-            <img id="skarwa-img" src="assets/skarwa.png">
+            <input type="radio" class="choice" id="skarwa-choice" name="drone" value="skarwa-select">
+            <img id="skarwa-img" for="skarwa-choice" src="assets/skarwa.png">
             <label for="skarwa-choice" id="skarwa-name">Skarwa</label>
         </label>
         <label class="pet-screen" id="name-instruct" for="name">Tamagotchi pet name (2 to 8 characters):</label>
@@ -45,24 +46,28 @@
             If they start losing subscribers click the Stream button.</br>
             Finally, if your streamer is starting to get lazy make them workout by clicking the Gym button.
         </p>
-        <button class="game-buttons pet-screen" id="begin-game" type="submit">Start Game</button>        
+        <button class="game-buttons pet-screen" id="begin-game" type="submit">Start Game</button>
+        </form>
+
         <!-- For everything that appears as the game plays on -->
         <div class="control-board">
             <button class="in-game game-buttons" id="feed">Feed</button>
             <button class="in-game game-buttons" id="entertain">Play</button>
             <button class="in-game game-buttons" id="sleep">Sleep</button>
             <h3 class="bar-title" id="hunger-title">Hunger Level</h3>
-            <div class="bar-border progress" id="hunger-bar">
+            <div class="bar-border progress" id="hunger-bar-border">
                 <div class="bar-fill progress" id="hunger-bar"></div>
             </div>
             <h3 class="bar-title" id="boredom-title">Boredom Level</h3>
-            <div class="bar-border progress" id="bored-bar">
+            <div class="bar-border progress" id="bored-bar-border">
                 <div class="bar-fill progress" id="bored-bar"></div>
             </div>
             <h3 class="bar-title" id="sleep-title">Sleepiness Level</h3>
-            <div class="bar-border progress" id="sleep-bar">
+            <div class="bar-border progress" id="sleep-bar-border">
                 <div class="bar-fill progress" id="sleep-bar"></div>
             </div>
+            <p class="in-game" id="name-of-pet">name</p>
+            <p class="in-game" id="age"></p>
         </div>  
     </div>
 </body>

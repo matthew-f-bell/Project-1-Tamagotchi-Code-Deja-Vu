@@ -2,12 +2,13 @@
       Classes and Objects
 ----------------------------*/
 class tamagotchi {
-    constructor(name = "Yuki") {
-        this.name = name;
+    constructor(name) {
+        this.name = "";
         this.hunger = 0;
         this.sleepiness = 0;
         this.boredom = 0;
         this.age = 1;
+        this.image = "";
     }
 
 }
@@ -26,10 +27,15 @@ const $backButton = $('#back-to-title');
 const $hungerBar = $('#hunger-bar');
 const $boredBar = $('#bored-bar');
 const $sleepBar = $('#sleep-bar');
-const $progressBar = $('.progress');
 const $controlBoard = $('.control-board');
 const $petScreen = $('.pet-screen');
-const $beginGame = $('#begin-game')
+const $beginGame = $('#begin-game');
+const $userNameInput = $('#pet-name');
+const $userPetChoice = $('.choice');
+const $nameOfPet = $('#name-of-pet');
+const $petChoice = $('#pet-choice');
+const $age = $('#age');
+
 
 /*----------------------------
             Functions
@@ -40,13 +46,13 @@ const $beginGame = $('#begin-game')
 const roadToTheEnd = function(second, petAttr, divider, timer, progressBar) {
     // makes pet increase in selected pet Property && logging out the property value and death for debugging
     if (second%divider === 0) {
-        petAttr++;
         progressBar.width((petAttr * 10) + '%' );
         // console.log(`pet level: ${petAttr}`);
         if (petAttr >= 10) {
             // console.log (`${pet.name} has died`);
             clearInterval(timer);
         }
+        petAttr++;
     }
     return petAttr;
 }
@@ -100,6 +106,7 @@ $playButton.click(function(){
 });
 
 // function to start the game and all the timers and sets up the gamescreen
+
 $beginGame.click(function(){
     // hides pet screen
     $petScreen.hide();
@@ -109,7 +116,18 @@ $beginGame.click(function(){
     // creates the buttons for the game to "heal" the pet
     $controlBoard.show();
 
+    $petChoice.on('submit', function(event) {
+        event.preventDefault();
+        // const userNameInput = $userNameInput.val();
+        //console.log(userNameInput);
+    });
     const pet = new tamagotchi();
+    pet.name = $userNameInput.val();
+    console.log($userPetChoice);
+    $nameOfPet.html(`Name: ${pet.name}`);
+
+    
+    
 
     // gets the time of the start of the game
     const gameStartTime = new Date().getTime();
@@ -126,6 +144,7 @@ $beginGame.click(function(){
 
         // ages the pet by 1 every 10 seconds && console.log for debugging
         if (seconds%5 === 0) {pet.age++;}
+        $age.html(`Age: ${pet.age}`);
         // console.log(`age of pet is ${pet.age}`);
 
         // calls function to bring the pet closer to death
