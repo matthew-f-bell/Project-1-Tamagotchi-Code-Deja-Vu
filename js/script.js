@@ -73,13 +73,13 @@ const roadToTheEnd = function(second, petAttr, divider, timer, progressBar) {
 const heal = function(petAttr, tama) {
     // log to debug what is being passed in through the argument
     // console.log(`healed ${petAttr}`);
-    if (petAttr === "Feed") {
+    if (petAttr === "Entertain") {
         tama.hunger = tama.hunger - 2 ;
         if (tama.hunger < 0) { tama.hunger = 0; }
-    } else if (petAttr === "Play") {
+    } else if (petAttr === "Feed") {
         tama.boredom = tama.boredom - 4 ;
         if (tama.boredom < 0) { tama.boredom = 0; }
-    } else if (petAttr === "Sleep") {
+    } else if (petAttr === "Gym") {
         tama.sleepiness = 0 ;
     }
     return petAttr ;
@@ -138,6 +138,7 @@ $beginGame.click(function(){
         //console.log(userNameInput);
     });
 
+
     // creates a new pet
     const pet = new tamagotchi();
     // names the pet using input from selection screen
@@ -152,6 +153,7 @@ $beginGame.click(function(){
     }
     $thePet.attr("src", pet.image);
     
+
     // gets the time of the start of the game
     const gameStartTime = new Date().getTime();
 
@@ -194,7 +196,7 @@ $creditsButton.click(function(){
 
     // adds a p and an h1 element with text and unhides the back button
     $gameContainer.prepend('<h1 id="credits-title">Credits</h1>');
-    $gameContainer.append('<p class="credits-roll">This game was created by Matthew Bell</p>');
+    $gameContainer.append('<p class="credits-roll">This game was created by Matthew Bell </br>Sprites made on emily2.itch.io/pcc by Exuin</p>');
     $backButton.show();
 
 
@@ -215,6 +217,7 @@ $creditsButton.click(function(){
 });
 
 $playAgain.click(function() {
+    // hides everything, resets progress bars, goes back to pet selection
     $modal.css("display", "none");
     statReset();
     $background.attr("src", "assets/space.jpeg");
@@ -224,6 +227,7 @@ $playAgain.click(function() {
 });
 
 $dontPlay.click(function() {
+    // hides everythin, goes back to title screen
     $modal.css("display", "none");
     statReset();
     $background.attr("src", "assets/space.jpeg");

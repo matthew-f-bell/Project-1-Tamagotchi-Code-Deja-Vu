@@ -36,3 +36,11 @@ Figured out why buttons were not working when created with jQuery so now I have 
 Created the credits page with working buttons to go back to the title screen.
 
 ##Day 4
+Spent a lot of time debugging and designing the pet selection screen.
+Had trouble getting the user input for text and couldnt figure out how to get the pictures to be buttons
+
+##Day 5
+
+Got everything working. Used a radio input to turn the pictures into buttons with help of css and a lot of googling.
+Fixed my progress bar issue.
+Created a modal to be the game over screen and buttons to let you play again or go back to title screen.
