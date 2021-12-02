@@ -14,8 +14,10 @@ button {
 .game-container {
     position: relative;
     padding-right: auto;
-    width: 812px;
-    height: 574px;
+    /* width: 812px;
+    height: 574px; */
+    width: vw;
+    height: vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +26,9 @@ button {
 
 .control-board {
     background-color: rgba(0, 0, 0, 0.671);
-    padding: 96px 406px;
+    /* padding: 96px 406px; */
+    width: 65vw;
+    height: 29vh; 
     position: absolute;
     z-index: 1;
     bottom: 0%;
@@ -52,8 +56,10 @@ button {
 
 #home-background {
     max-width: 1920px;
-    width: 812px;
-    height: 574px;
+    /* width: 812px;
+    height: 574px; */
+    width: 65vw;
+    height: vh; 
     z-index: 1;
 }
 
