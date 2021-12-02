@@ -175,7 +175,15 @@ $beginGame.click(function(){
         console.log(seconds);
 
         // ages the pet by 1 every 10 seconds && console.log for debugging
-        if (seconds%5 === 0) {pet.age++;}
+        if (seconds%5 === 0) {
+            pet.age++;
+            if (pet.age%6===0) {
+                let ind = Math.floor(Math.random() * (2-0)+0);
+                pet.image = $userPetChoice[ind].value;
+                $thePet.attr("src", pet.image);
+            }
+
+        }
         $age.html(`Age: ${pet.age}`);
         // console.log(`age of pet is ${pet.age}`);
 

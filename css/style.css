@@ -102,7 +102,7 @@ button {
     background-color: rgba(192, 192, 192, 0.938);
     width: 50%;
     border-radius: 15px;
-    z-index: 3;
+    z-index: 5;
 }
 
 #hunger-bar, #bored-bar, #sleep-bar {
