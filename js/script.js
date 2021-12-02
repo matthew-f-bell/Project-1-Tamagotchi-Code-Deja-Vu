@@ -75,12 +75,19 @@ const heal = function(petAttr, tama) {
     // console.log(`healed ${petAttr}`);
     if (petAttr === "Entertain") {
         tama.hunger = tama.hunger - 2 ;
-        if (tama.hunger < 0) { tama.hunger = 0; }
+        if (tama.hunger < 0) { 
+            tama.hunger = 0; 
+            $hungerBar.width((tama.hunger * 10) + '%');
+        }
     } else if (petAttr === "Feed") {
         tama.boredom = tama.boredom - 4 ;
-        if (tama.boredom < 0) { tama.boredom = 0; }
+        if (tama.boredom < 0) { 
+            tama.boredom = 0; 
+            $boredBar.width((tama.boredom * 10) + '%');
+        }
     } else if (petAttr === "Gym") {
         tama.sleepiness = 0 ;
+        $sleepBar.width((tama.sleepiness * 10) + '%');
     }
     return petAttr ;
 }

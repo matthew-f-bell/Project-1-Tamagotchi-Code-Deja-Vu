@@ -4,6 +4,12 @@ body {
     justify-content: center;
 }
 
+button {
+    border-radius: 15px;
+    color: white;
+    border: 3px solid rgb(56, 55, 134);
+    background-color: rgb(45, 94, 167);
+}
 
 .game-container {
     position: relative;
@@ -73,15 +79,15 @@ body {
 }
 
 #sleep {
-    right: 5%;
+    right: 2%;
 }
 
 #entertain {
-    right: 19%;
+    right: 15%;
 }
 
 #feed {
-    right: 33%;
+    right: 28%;
 }
 
 
@@ -291,4 +297,13 @@ body {
 
 #decisions {
     text-align: center;
+    font-size: 36px;
+}
+
+#play-again, #dont-play {
+    color: black;
+    background-color: gray;
+    border-radius: 0;
+    padding: 16px 24px;
+    font-size: 20px;
 }
