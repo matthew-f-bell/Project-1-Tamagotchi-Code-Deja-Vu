@@ -44,3 +44,7 @@ Had trouble getting the user input for text and couldnt figure out how to get th
 Got everything working. Used a radio input to turn the pictures into buttons with help of css and a lot of googling.
 Fixed my progress bar issue.
 Created a modal to be the game over screen and buttons to let you play again or go back to title screen.
+
+##Day 6 (Final Day)
+Last minute touch ups and css along with having a friend play test and point out that my progress bars are weird and I missed the evolution spec.
+Fixed and updated both to finalize the project for the turn in day. Still thinking about how I can still improve this and make it better since I didn't get to do everything.
